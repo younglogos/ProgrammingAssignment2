@@ -27,6 +27,10 @@ cacheSolve <- function(x, ...) {
     return(i)
   }
   data <- x$get()
+  if(det(data == 0)){
+    message("getting sigular matrix")
+    return(i)
+  }
   i <- solve(data, ...)
   x$setinverse(i)
   i
